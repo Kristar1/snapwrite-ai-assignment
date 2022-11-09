@@ -11,3 +11,121 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.container{
+  height:140vh;
+  display:flex;
+  /* flex-direction:column; */
+  align-items:center;
+  justify-content:space-evenly;
+
+}
+.dropzone{
+  align-items: center;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px hsl(210deg 8% 62% / 20%);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-direction:column;
+  height: 100%;
+  justify-content: center;
+  margin-bottom: 100px;
+  padding: 10px;
+  text-align: center;
+  height: 405px;
+    width: 405px;
+    position: relative;
+    /* width: 90%; */
+}
+.dropzone p{
+  color:gray;
+}
+.uploadIndicator{
+  margin-top:40px;
+}
+.textBox{
+    border-radius: 15px;
+    box-shadow: 0 8px 24px hsl(210deg 8% 62% / 20%);
+    box-sizing: border-box;
+    height: auto;
+    max-width: 640px;
+    width: 90%;
+    min-width:600px;
+    margin-top:20px;
+}
+.textBoxHeader{
+    box-shadow: 0 8px 8px -2px #eff89b;
+    font-weight: 500;
+    height: 30px;
+    padding: 20px 20px ;
+}
+.textBoxHeader {
+  font-size:18px;
+}
+.textBoxBody{
+  padding:20px;
+}
+.textBoxBody textarea{
+  width:100%;
+  height:300px;
+  border:none;
+  outline:none;
+  font-size:18px;
+  
+}
+
+.textBoxesWrapper{
+  display:flex;
+  flex-direction:column;
+}
+.imageController{
+  position: relative;
+}
+.imageContainer{
+  box-shadow: 0 8px 24px hsl(210deg 8% 62% / 20%);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+  padding: 10px;
+  text-align: center;
+  height: 405px;
+  width: 405px;
+  position: absolute;
+  /* width: 90%; */
+  border-radius: 20px;
+  top: 0;
+  overflow: hidden;
+  background-color: white;
+
+}
+.imageContainer img{
+  width: 90%;
+}
+.imageController:hover .imageContainer{
+  display: none;
+}
+
+@media screen and (max-width:960px) {
+  .container{
+    flex-direction: column;
+    height: unset;
+    margin: 40px 0;
+  }
+}
+@media screen and (max-width:580px) {
+.textBox{
+  width: 90vw;
+  min-width: unset;
+}
+}
+@media screen and (max-width:400px) {
+.dropzone{
+  width: 90vw;
+  height: 90vw;
+}
+}

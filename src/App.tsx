@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import ImageUploader from './components/ImageUploader'
+import TextBox1 from './components/TextBox1'
+import TextBox2 from './components/TextBox2'
+import useLocalstorage from './hooks/useLocalstorage';
+
 
 function App() {
+
+
+  const [imageUploaded, setImageUploaded] = useState(false)
+
+ 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container' >
+      <ImageUploader setImageUploaded={setImageUploaded} />
+      <div className='textboxesWrapper'>
+        <TextBox1 imageUploaded={imageUploaded} no={1}
+    
+          />
+        <TextBox2 imageUploaded={imageUploaded} no={2} />
+      </div>
     </div>
   );
 }
