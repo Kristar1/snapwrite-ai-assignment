@@ -1,21 +1,21 @@
-import React, {useState, useEffect} from 'react'
+import { useState } from 'react'
+import './ImageUploader.css'
 import { useDropzone } from 'react-dropzone';
-import UploadIndicator from '../assets/uploadIndicator.png'
+import UploadIndicator from '../../assets/uploadIndicator.png'
 import {
   getStorage,
   ref,
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import app from "../firebase";
-import axios from 'axios'
+import app from "../../firebase";
 
-const ImageUploader = (setImageUploaded) => {
+const ImageUploader = ({ setImageUploaded }: any) => {
   const IMAGE_URL = localStorage.getItem('IMAGE_URL')
   const [file, setFile] = useState('');
-  const [url, setUrl] = useState(IMAGE_URL ? IMAGE_URL:'')
+  const [url, setUrl] = useState(IMAGE_URL ? IMAGE_URL : '')
 
-  const fileChange = (images) => {
+  const fileChange = (images: any) => {
     const fileName = new Date().getTime() + 'photo';
     const storage = getStorage(app);
     const storageRef = ref(storage, fileName);
@@ -48,6 +48,7 @@ const ImageUploader = (setImageUploaded) => {
         // For instance, get the download URL: https://firebasestorage.googleapis.com/...
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setUrl(downloadURL)
+          setImageUploaded(true)
           localStorage.setItem('IMAGE_URL', downloadURL);
           console.log(url);
         });
@@ -60,32 +61,22 @@ const ImageUploader = (setImageUploaded) => {
       'image/png': ['.png'],
       'image/jpeg': ['.jpeg'],
     },
-    // maxFiles:1,
     onDrop: acceptedFiles => {
       fileChange(acceptedFiles)
     }
   });
 
-// useEffect(() => {
-
-//  url && setImageUploaded(true)
-// })
-
-
-
   return (
     <div className='imageController' >
       <div {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
-        <img src={UploadIndicator} className='uploadIndicator' />
+        <img src={UploadIndicator} className='uploadIndicator' alt='uploadIndicator' />
         <p className='uploadPara'>PNG, JPEG only</p>
       </div>
 
-      { url && <div className="imageContainer">
+      {url && <div className="imageContainer">
         <img src={url} alt="Image" />
       </div>}
-
-
     </div>
   )
 }

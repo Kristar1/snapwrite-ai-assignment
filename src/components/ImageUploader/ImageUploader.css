@@ -1,0 +1,70 @@
+
+.dropzone {
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px #969ea633;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    margin-bottom: 100px;
+    padding: 10px;
+    text-align: center;
+    height: 405px;
+    width: 405px;
+    position: relative;
+  }
+  
+  .dropzone p {
+    color: gray;
+  }
+  
+  .uploadIndicator {
+    margin-top: 40px;
+  }
+  
+  
+.imageController {
+    position: relative;
+  }
+  
+  .imageContainer {
+    box-shadow: 0 8px 24px hsl(210deg 8% 62% / 20%);
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 100px;
+    padding: 0px 10px;
+    text-align: center;
+    height: 405px;
+    width: 405px;
+    position: absolute;
+    /* width: 90%; */
+    border-radius: 20px;
+    top: 0;
+    overflow: hidden;
+    background-color: white;
+  
+  }
+  
+  .imageContainer img {
+    width: 90%;
+  }
+  
+  .imageController:hover .imageContainer {
+    display: none;
+  }
+
+  
+@media screen and (max-width:400px) {
+    .dropzone {
+      width: 90vw;
+      height: 90vw;
+    }
+  }
